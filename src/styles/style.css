@@ -216,7 +216,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #dadada;
+  background-color: #ebf2ff;
 }
 
 .y-scroll-search {
@@ -276,6 +276,8 @@ body {
   border-left: 0.5rem solid orange;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  -webkit-box-shadow: 0 2px 15px #a3a3a3;
+          box-shadow: 0 2px 15px #a3a3a3;
 }
 
 .search-result span {
