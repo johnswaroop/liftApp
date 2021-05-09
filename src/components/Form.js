@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+
+import useFetchData from '../hooks/useFetchData'
 
 
 const Form = () => {
@@ -14,8 +16,11 @@ const Form = () => {
     }
     var currentDate = today.getFullYear() + '-' + month + '-' + day;
 
+
+
     const [entryForm, setEntryForm] = useState({
 
+        id: '',
         date: currentDate,
         liftNo: '',
         siteName: '',
@@ -26,11 +31,16 @@ const Form = () => {
         customerName: '',
         address: '',
         mechanicName: '',
+        remark: ''
 
 
     });
 
+
+
+
     function handleChange(e) {
+
 
 
         setEntryForm((data) => {
@@ -44,9 +54,16 @@ const Form = () => {
 
     }
 
+
+
+
+
+
     function submitLift() {
 
-        console.log("submitted");
+
+
+
         fetch('https://api.steinhq.com/v1/storages/60979616d9e29121dfda964e/sheet1', {
             method: 'POST',
             headers: {
@@ -58,18 +75,19 @@ const Form = () => {
         }).then(Response => Response.json()).then(out => {
 
             console.log(out);
+            console.log("submitted");
+
 
         }).catch((er) => {
 
+            console.log('erroe');
 
         });
 
 
+
+
     }
-
-
-
-
 
 
 
@@ -96,6 +114,11 @@ const Form = () => {
 
 
                     <form id='form' action="">
+
+                        <label>
+                            <input name="id" type="text" value={entryForm.id} style={{ display: 'none' }} />
+                        </label>
+
 
                         <label>
                             Date <input name="date" type="date" value={entryForm.date} onChange={handleChange} />
@@ -137,6 +160,10 @@ const Form = () => {
                             Mechanic Name <input name="mechanicName" type="text" value={entryForm.mechanicName} onChange={handleChange} />
                         </label>
 
+                        <label>
+                            Remark <textarea name="remark" rows='10' type="text" value={entryForm.remark} onChange={handleChange} />
+                        </label>
+
 
                     </form>
 
@@ -154,5 +181,14 @@ const Form = () => {
     )
 
 }
+
+
+
+
+
+
+
+
+
 
 export default Form

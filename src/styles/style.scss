@@ -165,7 +165,7 @@ body {
     flex-direction: column;
     overflow-y: scroll;
     scrollbar-width: none;
-    height: 80%;
+    height: 100%;
     width: 100%;
 }
 
@@ -183,7 +183,7 @@ body {
 
 .search-results-view {
     display: flex;
-    height: 90%;
+    height: 77%;
 }
 
 .search-result {
@@ -208,10 +208,10 @@ body {
 
     h1 {
         font-family: "Montserrat", sans-serif;
-        font-size: 1.25rem;
+        font-size: 1rem;
         margin: 0;
         margin-right: 1rem;
-        color: orange;
+        color: black;
         font-weight: 500;
     }
 

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
 
-const useFetchData = () => {
+const useFetchData = (update) => {
 
 
-    const [data, setData] = useState({});
+    const [data, setData] = useState(null);
 
     useEffect(() => {
 
@@ -19,10 +19,10 @@ const useFetchData = () => {
 
 
 
-    }, []);
+    }, [update]);
 
 
-    return data;
+    return [data, setData];
 
 }
 
