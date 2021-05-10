@@ -385,7 +385,6 @@ body {
   background-color: white;
   border-radius: 15px;
   padding: 0.75rem;
-  min-height: 6rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -395,6 +394,7 @@ body {
   border-bottom-left-radius: 0;
   -webkit-box-shadow: 0 2px 15px #a3a3a3;
           box-shadow: 0 2px 15px #a3a3a3;
+  position: relative;
 }
 
 .search-result span {
@@ -406,7 +406,7 @@ body {
 .search-result h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
-  margin: 0;
+  margin: 0.5rem 0 0.5rem;
   margin-right: 1rem;
   color: black;
   font-weight: 500;
@@ -415,5 +415,25 @@ body {
 .search-result .q {
   color: #7c7c7c;
   font-weight: 400;
+}
+
+.expand-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  font-size: 0.5rem;
+  background-color: navajowhite;
+}
+
+.expand-btn img {
+  height: 1.25rem;
+  margin-left: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */
