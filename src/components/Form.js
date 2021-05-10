@@ -1,10 +1,13 @@
 import React, { useState, useContext } from 'react'
 import useFetchData from '../hooks/useFetchData'
+import { useHistory } from "react-router-dom";
 
 import { DataContext } from '../hooks/DataContext'
 
 
 const Form = () => {
+
+    let nav = useHistory();
 
     var today = new Date();
     var month = today.getMonth() + 1;
@@ -85,6 +88,8 @@ const Form = () => {
             trigger();
             alert('submitted sucessfully')
             console.log("close");
+            nav.push('/');
+
 
 
 
