@@ -17,8 +17,8 @@ const Search = () => {
     let size = Object.keys(result).length
 
     const results = new Array();
-    const expand = { minHeight: "40rem" }
-    const compress = { minHeight: "6rem" }
+    const expand = { minHeight: "40rem", maxHeight: "40rem" }
+    const compress = { minHeight: "6rem", maxHeight: "6rem" }
     let style;
     for (let i = 0; i < size; i++) {
         style = compress;
@@ -134,10 +134,11 @@ const Search = () => {
 
     return (
         <div className='search-container'>
+
             <div className='search-nav'>
 
-                <h1>Search By</h1>
-                {buttonProvider()}
+
+                {/* {buttonProvider()} */}
                 <div className='search-bar'>
                     <input type="text" value={searchKey} onChange={searchHandler} />
                     <button onClick={updateSearchResult} >Search</button>
@@ -145,6 +146,7 @@ const Search = () => {
 
 
             </div>
+
             <div className='search-results-view'>
                 <div className='y-scroll-search'>
 
@@ -152,6 +154,7 @@ const Search = () => {
                 </div>
 
             </div>
+
         </div>
     )
 }

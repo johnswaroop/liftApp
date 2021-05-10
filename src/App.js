@@ -37,11 +37,11 @@ function App() {
               </div>
               <div className='bottom-nav'>
 
-                <Link to='/' style={{ width: "50%", height: '100%' }}>
-                  <button className='link-btn'>Search</button>
+                <Link to='/' className='routeBtn' >
+                  <img className='routeIcon' src="images/icons/search.png" alt="" />
                 </Link>
-                <Link to='/add' style={{ width: "50%", height: '100%' }} >
-                  <button className='link-btn'>Add Lift</button>
+                <Link to='/add' className='routeBtn' >
+                  <img className='routeIcon' src="images/icons/add.png" alt="" />
                 </Link>
               </div>
             </div>
