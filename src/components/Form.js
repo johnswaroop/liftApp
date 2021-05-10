@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
-
 import useFetchData from '../hooks/useFetchData'
+
+import { DataContext } from '../hooks/DataContext'
 
 
 const Form = () => {
@@ -16,11 +17,15 @@ const Form = () => {
     }
     var currentDate = today.getFullYear() + '-' + month + '-' + day;
 
+    let [data, setData, trigger] = useContext(DataContext);
+
+
+
 
 
     const [entryForm, setEntryForm] = useState({
 
-        id: '',
+
         date: currentDate,
         liftNo: '',
         siteName: '',
@@ -35,6 +40,7 @@ const Form = () => {
 
 
     });
+
 
 
 
@@ -61,7 +67,8 @@ const Form = () => {
 
     function submitLift() {
 
-
+        let newObj = { ...entryForm }
+        newObj.id = Object.keys(data).length + 1;
 
 
         fetch('https://api.steinhq.com/v1/storages/60979616d9e29121dfda964e/sheet1', {
@@ -70,17 +77,22 @@ const Form = () => {
                 'Content-Type': 'application/json'
             },
 
-            body: JSON.stringify([entryForm])
+            body: JSON.stringify([newObj])
 
         }).then(Response => Response.json()).then(out => {
 
-            console.log(out);
-            console.log("submitted");
+            console.log(out + "submitted");
+            trigger();
+            alert('submitted sucessfully')
+            console.log("close");
+
+
 
 
         }).catch((er) => {
 
-            console.log('erroe');
+            console.log('error');
+
 
         });
 
@@ -114,10 +126,6 @@ const Form = () => {
 
 
                     <form id='form' action="">
-
-                        <label>
-                            <input name="id" type="text" value={entryForm.id} style={{ display: 'none' }} />
-                        </label>
 
 
                         <label>

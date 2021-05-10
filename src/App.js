@@ -7,19 +7,20 @@ import { useState } from 'react'
 
 function App() {
 
-  const [update, setUpdate] = useState(0);
 
-  let [data, setData] = useFetchData(update);
-  console.log(typeof data);
+
+  let [data, setData, trigger] = useFetchData();
+
+
 
   if (data) {
-    console.log(data)
+
     return (
-      <div className='container'>
-        <DataContext.Provider value={[data, setData]}>
+      <div className='container'  >
+        <DataContext.Provider value={[data, setData, trigger]}>
           <div className='phone'>
-            {/* <Form /> */}
-            <Search />
+            <Form />
+            {/* <Search /> */}
           </div>
         </DataContext.Provider>
 
