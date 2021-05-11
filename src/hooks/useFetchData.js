@@ -12,7 +12,8 @@ const useFetchData = () => {
 
             setData((p) => {
 
-                return { ...rows }
+
+                return { ...rows.reverse() }
 
             })
         })
@@ -29,7 +30,8 @@ const useFetchData = () => {
 
             setData((p) => {
 
-                return { ...rows }
+
+                return { ...rows.reverse() }
 
             })
         })

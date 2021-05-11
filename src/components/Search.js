@@ -76,7 +76,7 @@ const Search = () => {
     function triggerExpand(e) {
 
         if (e.target.name != expandId) {
-            console.log(e.target.name);
+
             setExpandId(e.target.name);
             setTogglePopout((x) => {
                 return !x;
