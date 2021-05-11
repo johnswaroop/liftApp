@@ -265,6 +265,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #ebf2ff;
+  position: relative;
 }
 
 .y-scroll-search {
@@ -404,6 +405,8 @@ body {
   background-color: white;
   border-radius: 15px;
   padding: 0.75rem;
+  min-height: 6rem;
+  max-height: 6rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -454,5 +457,78 @@ body {
 .expand-btn img {
   height: 1.25rem;
   margin-left: 0.5rem;
+}
+
+.popout-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 20;
+  padding: 0 1rem 0;
+}
+
+.popout-card h1 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #383838;
+}
+
+.popout-card span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 3px solid navajowhite;
+}
+
+.popout-card .q {
+  font-size: 1.25rem;
+  margin: 0;
+  margin-top: 2rem;
+  color: orange;
+}
+
+.popout-card button {
+  margin: 1rem auto 1rem;
+  min-height: 3rem;
+  width: 40%;
+  background-color: navajowhite;
+  border: none;
+  border-bottom: 5px solid orange;
+  border-radius: 8px 8px 0 0;
+  color: orange;
+  font-size: 1.25rem;
+}
+
+.y-scroll-pop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  height: 100%;
+  width: 100%;
+}
+
+.y-scroll-pop::-webkit-scrollbar {
+  width: 0 !important;
 }
 /*# sourceMappingURL=style.css.map */

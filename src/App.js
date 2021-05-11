@@ -33,16 +33,21 @@ function App() {
 
 
 
+
                 </Switch>
               </div>
               <div className='bottom-nav'>
 
-                <Link to='/' className='routeBtn' >
-                  <img className='routeIcon' src="images/icons/search.png" alt="" />
-                </Link>
+
                 <Link to='/add' className='routeBtn' >
                   <img className='routeIcon' src="images/icons/add.png" alt="" />
                 </Link>
+
+                <Link to='/' className='routeBtn' >
+                  <img className='routeIcon' src="images/icons/search.png" alt="" />
+                </Link>
+
+
               </div>
             </div>
           </DataContext.Provider>

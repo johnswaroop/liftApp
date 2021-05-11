@@ -2,6 +2,7 @@ import useFetchData from '../hooks/useFetchData'
 import { DataContext } from '../hooks/DataContext'
 import useFuzzySearch from '../hooks/useFuzzySearch'
 import { useContext, useState } from 'react'
+import PopoutCard from './PopoutCard'
 const Search = () => {
 
     const [data, setData] = useContext(DataContext);
@@ -9,6 +10,7 @@ const Search = () => {
     const [activeBtn, setActiveBtn] = useState('liftNo');
     const [searchKey, setSearchKey] = useState('');
     const [expandId, setExpandId] = useState(-1);
+    const [togglePopout, setTogglePopout] = useState(false);
 
     const [result, setResult] = useState(data);
 
@@ -17,16 +19,11 @@ const Search = () => {
     let size = Object.keys(result).length
 
     const results = new Array();
-    const expand = { minHeight: "40rem", maxHeight: "40rem" }
-    const compress = { minHeight: "6rem", maxHeight: "6rem" }
-    let style;
+
     for (let i = 0; i < size; i++) {
-        style = compress;
-        if (i == expandId) {
-            style = expand;
-        }
+
         results.push(
-            <div className='search-result' style={style} id={i} >
+            <div className='search-result' id={i} >
                 <span>
                     <h1 className='q'>Date :</h1>
                     <h1 className='result-date' type="date" >{result[i].date}</h1>
@@ -69,6 +66,8 @@ const Search = () => {
                     <h1 className='result-date' type="date" >{result[i].remark}</h1>
                 </span>
                 <button name={i} className='expand-btn' onClick={triggerExpand} ><img name={i} src="images/icons/expand.png" alt="" /></button>
+
+
             </div>
 
         )
@@ -79,6 +78,9 @@ const Search = () => {
         if (e.target.name != expandId) {
             console.log(e.target.name);
             setExpandId(e.target.name);
+            setTogglePopout((x) => {
+                return !x;
+            })
         }
         else {
             setExpandId(-1);
@@ -154,6 +156,10 @@ const Search = () => {
                 </div>
 
             </div>
+            {
+                togglePopout ? <PopoutCard result={result} i={expandId} toggle={setTogglePopout} /> : null
+            }
+
 
         </div>
     )
